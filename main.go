@@ -1,8 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"github/coder9527-lg/lg-gin-vue/controller"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println("lg-gin-vue")
-	fmt.Println("12")
+	r := gin.Default()
+	r.GET("ping", controller.Ping)
+	r.Run()
 }
