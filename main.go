@@ -1,14 +1,19 @@
 package main
 
 import (
-	"github/coder9527-lg/lg-gin-vue/controller"
+	"fmt"
 
-	"github.com/gin-gonic/gin"
+	"github/coder9527-lg/lg-gin-vue/db"
+	"github/coder9527-lg/lg-gin-vue/routers"
 )
 
+func test(s int) {
+	if s/5 == 0 {
+		fmt.Println("yes")
+	}
+}
+
 func main() {
-	r := gin.Default()
-	r.GET("ping", controller.Ping)
-	r.GET("/api/auth/register", controller.Register)
-	r.Run()
+	db.Run()
+	routers.Run()
 }
