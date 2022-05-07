@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"os"
 
-	"github/coder9527-lg/lg-gin-vue/db"
-	"github/coder9527-lg/lg-gin-vue/routers"
+	"github.com/coder9527-lg/lg-gin-vue/cmd"
 )
 
 func test(s int) {
@@ -14,6 +14,8 @@ func test(s int) {
 }
 
 func main() {
-	db.Run()
-	routers.Run()
+	if err := cmd.Execute(); err != nil {
+		println("start fail:", err.Error())
+	}
+	os.Exit(-1)
 }
